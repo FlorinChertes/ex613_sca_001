@@ -22,7 +22,11 @@ int div_by_zero(int x)
 {
 	if(x)
 	{
+#if defined (_MSC_VER)
+		return 47;
+#else
 		return 13 / 0;
+#endif
 	}
 	else
 	{
@@ -58,7 +62,7 @@ int overflow (int x)
 //-----------------------------------------------------------------------------
 void test_utils_024()
 {
-	std::cout << "*** test utils 024 ***" << std::endl;
+	std::cout << "*** start test utils 024 ***" << std::endl;
 	int ret_val = 0;
 
 	ret_val = un_init(1);
@@ -72,6 +76,8 @@ void test_utils_024()
 
 	ret_val = null_deref(1);
 	std::cout << "ret val null deref = " << ret_val << std::endl;
+
+	std::cout << "*** end test utils 024 ***" << std::endl;
 }
 
 int main()
