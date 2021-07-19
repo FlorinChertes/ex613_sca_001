@@ -30,18 +30,48 @@ int div_by_zero(int x)
 	}
 }
 
+int un_init(int x)
+{
+	int u;
+	if (x)
+	{
+		return u + 13;
+	}
+	else
+	{
+		return 47;
+	}
+}
+
+int overflow (int x)
+{
+	if (x + 1 < x )
+	{
+		return 13;
+	}
+	else
+	{
+		return 47;
+	}
+}
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
 void test_utils_024()
 {
 	std::cout << "*** test utils 024 ***" << std::endl;
+	int ret_val = 0;
 
-	//const int ret_val = null_deref(1);
-	//std::cout << "ret val null deref = " << ret_val << std::endl;
-	const int ret_val = div_by_zero(1);
+	ret_val = un_init(1);
+	std::cout << "ret val un init = " << ret_val << std::endl;
+
+	ret_val = overflow(1);
+	std::cout << "ret val overflow = " << ret_val << std::endl;
+
+	ret_val = div_by_zero(1);
 	std::cout << "ret val div by null = " << ret_val << std::endl;
 
-
+	ret_val = null_deref(1);
+	std::cout << "ret val null deref = " << ret_val << std::endl;
 }
 
 int main()

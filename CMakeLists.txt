@@ -15,7 +15,7 @@ IF (MSVC)
 		SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /EHsc")
 	ENDIF ()
 ELSE ()
-	SET( CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wnull-dereference")
+	SET( CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -O3 -flto -Wall -Wextra -Wnull-dereference -Wsuggest-attribute=const")
 
 	SET(GCC_STD_CPP_CONCEPTS_COMPILE_FLAGS "-fconcepts")
 	SET( CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} ${GCC_STD_CPP_CONCEPTS_COMPILE_FLAGS}")
